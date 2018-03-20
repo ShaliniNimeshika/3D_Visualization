@@ -40,10 +40,12 @@ a {
 	color:#86080b;
 	text-decoration:underline;
 }
+/*
 .header, .content, .menu_nav, .fbg, .footer, form, ol, ol li, ul, .content .mainbar, .content .sidebar {
 	margin:0;
 	padding:0;
 }
+*/
 .header {
 	background:url(../images/hbg_bg.jpg) no-repeat center 105px;
 }
@@ -185,6 +187,7 @@ h1 small {
 .content .mainbar .post_content strong {
 	color:#b7b6b6;
 }
+/*
 .content .sidebar {
 	padding:0;
 	float:left;
@@ -196,6 +199,7 @@ h1 small {
 }
 .content .sidebar h2 {
 }
+*/
 ul.sb_menu, ul.ex_menu {
 	margin:0;
 	padding:0;
