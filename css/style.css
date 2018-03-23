@@ -13,7 +13,7 @@ html, .main {
 	margin:0;
 }
 .main {
-	background:url(../images/header_bg.gif) repeat-x left 105px;
+	background:url(../images/header_bg.gif) repeat-x left 0px;
 }
 .clr {
 	clear:both;
@@ -47,7 +47,7 @@ a {
 }
 */
 .header {
-	background:url(../images/hbg_bg.jpg) no-repeat center 105px;
+	/*background:url(../images/hbg_bg.jpg) no-repeat center 105px;*/
 }
 .header_resize {
 	margin:0 auto;
@@ -85,9 +85,9 @@ h1 small {
 	color:#e9e8e8;
 }
 .slider {
-	margin:0;
-	padding:10px 10px 8px;
-	background:url(../images/slider_bg.jpg) no-repeat center top;
+	margin:0px;
+	padding:0px 0px 0px;
+	/*background:url(../images/slider_bg.jpg) no-repeat center top;*/
 }
 .rss {
 	padding:18px 20px 0 0;
