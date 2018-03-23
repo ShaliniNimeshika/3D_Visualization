@@ -13,7 +13,7 @@ html, .main {
 	margin:0;
 }
 .main {
-	background:url(../images/header_bg.gif) repeat-x left 0px;
+	/*background:url(../images/header_bg.gif) repeat-x left 0px;*/
 }
 .clr {
 	clear:both;
