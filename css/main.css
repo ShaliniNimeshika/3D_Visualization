@@ -2031,7 +2031,7 @@ h6, .h6 {
 .hero-section--image::before {
   content: "";
   display: block;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(25, 25, 112, 0.4);
   z-index: 1;
   top: 0;
   left: 0;
