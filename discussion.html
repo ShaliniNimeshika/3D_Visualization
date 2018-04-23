@@ -10,39 +10,69 @@
         <!-- CSS -->
         <link href="css/main.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet" type="text/css" />
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
         <!-- JS -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="js/vendor/jquery-1.12.0.min.js"></script>
 
+
     </head>
     <body>
       <div class="main">
-        
         <div class="header">
           <div class="header_resize">
             <div class="menu_nav">
               <ul>
                 <li><a href="index.html"><span>Home</span></a></li>
-                <li><a href="collections.html"><span>Collections</span></a></li>
-                <li class="active"><a href="explore.html"><span>Explore</span></a></li>
+                <li>
+                  <div class="dropdown"><span><a>Collections</a></span>
+                    <div class="dropdown-content">
+                      <a href="collections.html">Gents</a>
+                      <a href="lcollection.html">Ladies</a>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="dropdown"><span><a>Explore</a></span>
+                   <div class="dropdown-content">
+                      <a href="aboutus.html">About us</a>
+                      <a  class="active" href="discussion.html">Discussion forum</a>
+                    </div>
+
+                </li>
                 <li><a href="contact.html"><span>Contact Us</span></a></li>
      
               </ul>
             </div>
             <div class="logo">
-              <h1><a href="index.html">Fashion<span>line</span> <small>Be style.Be You</small></a></h1>
+              <h1><a href="index.html">Fashion<span>line</span> <small>Be style.Be You.</small></a></h1>
             </div>
             <div class="clr"></div>
-          </div>
-
-          
+          </div>   
         </div>
       <div class="clr"></div>
       <div class="slider">
-        <div id="coin-slider"> <a href="#"><img src="images/slide1.jpg" width="940" height="310" alt="" /> </a> <a href="#"><img src="images/slide2.jpg" width="940" height="310" alt="" /> </a> <a href="#"><img src="images/slide3.jpg" width="940" height="310" alt="" /> </a> </div>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+</div>
+
+
         <div class="clr"></div>
       </div>
       <div class="clr"></div>
@@ -71,7 +101,6 @@
       <div class="sidebar">
         <div class="gadget">
           <h2 class="star"><span>Sidebar</span> Menu</h2>
-          <div class="clr"></div>
           <ul class="sb_menu">
             <li><a href="#">Home</a></li>
             <li><a href="#">TemplateInfo</a></li>
@@ -83,7 +112,7 @@
         </div>
         <div class="gadget">
           <h2 class="star"><span>Sponsors</span></h2>
-          <div class="clr"></div>
+
           <ul class="ex_menu">
             <li><a href="#">Lorem ipsum dolor</a><br />
               Donec libero. Suspendisse bibendum</li>
