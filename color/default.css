@@ -1,43 +1,43 @@
 a, a:hover {
-  color: #00c1c1;
+  color: #e0b50b;
 }
 
 
 /* Back to top button */
 .back-to-top {
-  background: #00c1c1;
+  background: #e0b50b;
   color: #fff;
 }
 
 
 .back-to-top:focus {
-  background: #00c1c1;
+  background: #e0b50b;
   color: #fff;
 }
 
 .back-to-top:hover {
-  background: #019090;
+  background: #cc980a;
   color: #fff;
 }
 
 .navbar-default {
-  background: #00c1c1;
+  background: #e0b50b;
 }
 
 .form-control:focus {
-  border-color: #00c1c1;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px #00c1c1;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px #00c1c1;
+  border-color: #e0b50b;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px #e0b50b;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px #e0b50b;
 }
 
 .service .carousel-indicators .active {
-  background: #00c1c1;
+  background: #e0b50b;
 }
 
 .btn-theme {
-  background: #00c1c1;
+  background: #e0b50b;
 }
 
 .contact-widget i {
-  color: #00c1c1;
+  color: #e0b50b;
 }
