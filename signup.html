@@ -19,26 +19,26 @@
     </div>
     <!-- Form Module-->
     <div class="module form-module">
-      <div class="toggle"><i class="fa fa-times fa-pencil"></i>
-        <div class="tooltip"><a href="login.html">Here to login!</a></div>
+      
+      <div class="toggle"><a href="login.html"><i class="fa fa-times fa-pencil"></i></a>
+        <div class="tooltip">MEMBER ?</div>
       </div>
       <div class="form">
         <h2>Create an account</h2>
-        <form>
-          <input type="text" placeholder="Firstname"/>
-          <input type="text" placeholder="Lastname"/>
-          <input type="text" placeholder="NIC"/>
-          <input type="email" placeholder="Email Address"/>
-          <input type="tel" placeholder="Phone Number"/>
-          <input type="password" placeholder="Please Enter Password"/>
-          <input type="password" placeholder="Confirm Password"/>
-          <button>Register</button>
-        </form>
-      </div>
+          <form>
+            <input type="text" name="name" placeholder="Fisrt Name and Last Name"/>
+            <input type="text" name="nic" placeholder="NIC No"/>
+            <input type="text" name="telephone" placeholder="Telephone No"/>
+            <input type="email" name="email" placeholder="Email"/>
+            <input type="text" name="password" placeholder="Password"/>
+            <input type="text" name="repassword" maxlength="10" minlength="5" placeholder="Re-enter password"/>
+            <button type="submit" value="register">Register</button>
+            <div class="cta"><a href="index.html">Go to Home</a></div>
+          </form>
+        </div>
     </div>
 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='https://codepen.io/andytran/pen/vLmRVp.js'></script>
     <script  src="js/index.js"></script>
 
   </body>
