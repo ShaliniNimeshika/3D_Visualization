@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/3D_Visualization';
+$config['base_url'] = 'http://localhost/3D_Visualization/';
 
 /*
 |--------------------------------------------------------------------------
@@ -432,7 +432,7 @@ $config['standardize_newlines'] = FALSE;
 |          for backwards compatibility purposes!
 |
 */
-$config['global_xss_filtering'] = TRUE;
+$config['global_xss_filtering'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
@@ -521,7 +521,3 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
-
-/*
-$config = array('bot_email' => 'nishadithilakarathna77@gmail.com','admin_mail' => 'nimeshika94@gmail.com' );
-*/
