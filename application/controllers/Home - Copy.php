@@ -100,7 +100,7 @@ class Home extends CI_Controller {
 									);
 					// Add user data in session
 					$this->session->set_userdata('logged_in', $session_data);
-					$this->load->view('home'); //add admin pnl
+					$this->load->view('contact'); //add admin pnl
 				}
 			} else {
 				//if there is any error occureed
