@@ -1,5 +1,5 @@
 body {
-  background-image: url(<?php echo base_url();?>assests/images/back.jpg);
+  background-image: url("<?php echo base_url();?>assests/images/back.jpg");
   color: #ffffff;
   font-family: 'RobotoDraft', 'Roboto', sans-serif;
   font-size: 14px;
