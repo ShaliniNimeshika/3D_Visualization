@@ -1,21 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-session_start(); //we need to start session in order to access it through CI*/
+
 
 class Home extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-
-		// Load form helper library
-		$this->load->helper('form');
-
-		// Load form validation library
-		$this->load->library('form_validation');
-
-		// Load session library
-		$this->load->library('session');
 
 		// Load database
 		$this->load->model('Home_model');
@@ -123,6 +114,7 @@ class Home extends CI_Controller {
 		}
 	}
 
+	//logout from the system
 	public function logout(){
 		// Removing session data
 		$session_array = array('username' => '');
@@ -132,5 +124,42 @@ class Home extends CI_Controller {
 		$data['message_display'] = 'Successfully Logout';
 
 		$this->load->view('login', $data);
+	}
+
+	//new user registration
+	public function user_registration(){
+		//set validation for user registration
+
+		$this->form_validation->set_rules('fname','fname','trim|required|xss_clean');
+		$this->form_validation->set_rules('lname','lname','trim|required|xss_clean');
+		$this->form_validation->set_rules('nic','nic','trim|required|xss_clean|min_length[10]|max_length[10]');
+		$this->form_validation->set_rules('telephone','telephone','trim|required|xss_clean|min_length[10]');
+		$this->form_validation->set_rules('email','email','trim|required|xss_clean|min_length[100]');
+		$this->form_validation->set_rules('password','password','trim|required|xss_clean|min_length[50]');
+
+		if ($this->form_validation->run() == TRUE) {
+			$data = array(
+				'fname' => $this->input->post('fname'), 
+				'lname' => $this->input->post('lname'),
+				'nic' => $this->input->post('nic'),
+				'telephone' => $this->input->post('telephone'),
+				'email' => $this->input->post('email'),
+				'password' => $this->input->post('password')
+			);
+
+			$result = $this->Home_model->register($data);
+
+			if ($result == TRUE) {
+				$data['message'] = 'Registered Successfully !';
+				$this->load->view('login',$data);
+			} else {
+				$data['message'] = 'Email already exist !';
+				$this->load->view('signup',$data);
+			}
+			
+		} else {
+			$this->load->view('signup');
+		}
+		
 	}
 }
