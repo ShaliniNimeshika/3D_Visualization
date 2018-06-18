@@ -432,10 +432,8 @@
 				</div>
 				<div class="col-lg-6 text-right deal_ofthe_week_col">
 					<div class="deal_ofthe_week_content d-flex flex-column align-items-center float-right">
-						<div></div>
+							<ul class="timer">
 
-						<ul class="timer">
-							<div></div>
 							<li class="d-inline-flex flex-column justify-content-center align-items-center">
 								<div id="day" class="timer_num">03</div>
 								<div class="timer_unit">Day</div>
