@@ -66,8 +66,8 @@
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="account_selection">
-										<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+										<li><a href="<?php echo base_url();?>index.php/Home/load_login"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+										<li><a href="<?php echo base_url();?>index.php/Home/load_signup"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -76,7 +76,6 @@
 				</div>
 			</div>
 		</div>
-
 		<!-- Main Navigation -->
 
 		<div class="main_nav_container">
@@ -88,9 +87,9 @@
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="home.php">Home</a></li>
+								<li><a href="<?php echo base_url();?>index.php">Home</a></li>
 								<li><a href="#">Shop</a></li>
-								<li><a href="contact.php">Contact</a></li>
+								<li><a href="<?php echo base_url();?>index.php/Home/load_contact">Contact</a></li>
 								<li><a href="#">Forum</a></li>
 								
 							</ul>
@@ -112,15 +111,14 @@
 				</div>
 			</div>
 		</div>
-
 	</header>
 
 	<div class="fs_menu_overlay"></div>
 
+
 	<!-- Hamburger Menu -->
 
-<div class="fs_menu_overlay"></div>
-	<div class="hamburger_menu">
+<div class="hamburger_menu">
 		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
 		<div class="hamburger_menu_content text-right">
 			<ul class="menu_top_nav">
@@ -152,31 +150,32 @@
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="account_selection">
-						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+						<li><a href="<?php echo base_url();?>index.php/Home/load_login"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+						<li><a href="<?php echo base_url();?>index.php/Home/load_signup"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="home.php">home</a></li>
+				<li class="menu_item"><a href="<?php echo base_url();?>index.php">home</a></li>
 				<li class="menu_item"><a href="#">shop</a></li>
-				<li class="menu_item"><a href="contact.php">contact</a></li>		
+				<li class="menu_item"><a href="<?php echo base_url();?>index.php/Home/load_contact">contact</a></li>		
 			</ul>
 		</div>
 	</div>
-	<div class="container contact_container">
+	<div class="container product_section_container">
 		<div class="row">
-			<div class="col">
+			<div class="col product_section clearfix">
 
 				<!-- Breadcrumbs -->
 
 				<div class="breadcrumbs d-flex flex-row align-items-center">
 					<ul>
-						<li><a href="index.php">Home</a></li>
-						<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Contact</a></li>
+						<li><a href="<?php echo base_url();?>index.php">Home</a></li>
+						<li class="active"><a href="<?php echo base_url();?>contact.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Contact</a></li>
 					</ul>
 				</div>
 
-			</div>
-		</div>
+				<div>
+				</div>
+
 
 		<!-- Map Container -->
 
@@ -273,7 +272,7 @@
 
 	<!-- Footer -->
 
-	<footer class="footer">
+		<footer class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
