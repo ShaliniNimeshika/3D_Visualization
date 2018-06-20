@@ -854,7 +854,7 @@ section
 	justify-content: center;
 	align-items: center;
 	width: auto;
-	height: 40px;
+	height: 60px;
 	background: #fe4c50;
 	border-radius: 3px;
 	-webkit-transition: all 0.3s ease;
@@ -872,7 +872,7 @@ section
 	display: block;
 	color: #FFFFFF;
 	text-transform: uppercase;
-	font-size: 14px;
+	font-size: 20px;
 	font-weight: 500;
 	text-align: center;
 	line-height: 40px;
