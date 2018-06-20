@@ -35,7 +35,7 @@
 						<div class="top_nav_right">
 							<ul class="top_nav_menu">
 
-								<!-- Currency / Language / My Account -->
+								<!--header part-->
 
 								<li class="currency">
 									<a href="#">
@@ -64,6 +64,8 @@
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="account_selection">
+
+										<!-- select login or registration-->
 										<li><a href="<?php echo base_url();?>index.php/Home/load_login"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
 										<li><a href="<?php echo base_url();?>index.php/Home/load_signup"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
 									</ul>
@@ -86,6 +88,8 @@
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
+
+								<!-- create navigation bar-->
 								<li><a href="<?php echo base_url();?>index.php">Home</a></li>
 								<li><a href="#">Shop</a></li>
 								<li><a href="<?php echo base_url();?>index.php/Home/load_contact">Contact</a></li>
@@ -191,6 +195,9 @@
 		<div class="container">
 			<div class="row">
 
+				<!-- choose women, men and accessories categories-->
+
+				<!--women catogry-->
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(<?php echo base_url();?>assests/images/banner_1.gif)">
 						<div class="banner_category">
@@ -198,6 +205,8 @@
 						</div>
 					</div>
 				</div>
+
+				<!--accessories category-->
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(<?php echo base_url();?>assests/images/banner_2.jpg)">
 						<div class="banner_category">
@@ -205,6 +214,8 @@
 						</div>
 					</div>
 				</div>
+
+				<!--men category-->
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(<?php echo base_url();?>assests/images/banner_3.gif)">
 						<div class="banner_category">
@@ -216,7 +227,7 @@
 		</div>
 	</div>
 
-	<!-- New Arrivals -->
+	<!-- showing new arrivals of the shop to both registered and non-registered customers. -->
 
 	<div class="new_arrivals">
 		<div class="container">
@@ -333,10 +344,7 @@
 								<div class="product_image">
 									<img src="<?php echo base_url();?>assests/images/product_6.png" alt="">
 								</div>
-								<!-- <div class="favorite favorite_left"></div> -->
-								<!-- <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-									
-								</div> -->
+
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
 									<div class="product_price">LKR.1500.00</div>
@@ -415,7 +423,7 @@
 	</div>
 
 
-	<!-- Deal of the week -->
+	<!-- Showing the special item of the shop which is called 'week deal' -->
 
 <div class="new_arrivals">
 		<div class="container">
@@ -460,7 +468,8 @@
 			</div>
 		</div>
 	</div>
-	<!-- Best Sellers -->
+
+	<!-- Dealer and brand names of the items sell in the shop -->
 
 	<div class="best_sellers">
 		<div class="container">

@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-
 class Home extends CI_Controller {
 
 	public function __construct() {
@@ -73,7 +71,7 @@ class Home extends CI_Controller {
             redirect("Home/load_login");
         }
         else{
-            $this->load->view('admin_panel/ahome');	//need to load admin panel
+            $this->load->view('home');	//need to load admin panel
         }
     }
     public function user(){
@@ -83,63 +81,55 @@ class Home extends CI_Controller {
             redirect("Home/load_login");
         }
         else{
-            $this->load->view('user_panel/uhome');	//need to load user panel or use profile
+            $this->load->view('home');	//need to load user panel or use profile
         }
     }
 
 	//controlling system login
 	public function login_user(){
-		 $this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]');
-
         if ($this->form_validation->run() == TRUE) {
             $username = $_POST['username'];
             $password = $_POST['password'];
-
-
             //check the user from the database
             $this->db->select('*');
             $this->db->from('user');
             $this->db->where(array('email' => $username, 'password' => $password));
-
             $query = $this->db->get();
-            $user = $query->row();
-            //maintain a session for prticular user
-            $_SESSION['status'] = $user->status;
+            $user = $query->result();
 
-            if ($user->status == "admin") {
+            //session_start();
+            //maintain a session for prticular user
+            $_SESSION['status'] = $user[0]->status;
+            if ($user[0]->status == "admin") {
                 //maintain a session to user status already logged in or not
                 $_SESSION['user_logged'] = TRUE;
-                $_SESSION['fname'] = $user->firstname;
-                $_SESSION['lname'] = $user->lastname;
-                $_SESSION['email'] = $user->email;
-
+                $_SESSION['fname'] = $user[0]->first_name;
+                $_SESSION['lname'] = $user[0]->last_name;
+                $_SESSION['email'] = $user[0]->email;
                 //redirect to the profile page
                 redirect("Home/admin", "refresh");
-            } elseif ($user->status == 'user') {
+            } elseif ($user[0]->status == 'user') {
                 //maintain a session to user status already logged in or not
                 $_SESSION['user_logged'] = TRUE;
-                $_SESSION['fname'] = $user->firstname;
-                $_SESSION['lname'] = $user->lastname;
-                $_SESSION['email'] = $user->email;
-
+                $_SESSION['fname'] = $user[0]->first_name;
+                $_SESSION['lname'] = $user[0]->last_name;
+                $_SESSION['email'] = $user[0]->email;
                 //redirect to the profile page
                 redirect("Home/user", "refresh");
-
             } else {
                 // If user did not validate, then show them login page again
                 $msg = '<font color=red>Please Enter your Username and Password First</font><br />';
                 $data['msg'] = $msg;
                 $this->load->view('login', $data);
-
             }
-
         } else {
             $msg = '<font color=red>Invalid username and/or password.</font><br />';
             $data['msg'] = $msg;
             $this->load->view('login', $data);
         }
-		$this->load->view('login');
+		//$this->load->view('login');
 	}
 
 	//logout from the system
@@ -166,28 +156,46 @@ class Home extends CI_Controller {
 		$this->form_validation->set_rules('password','password','trim|required|xss_clean|min_length[50]');
 
 		if ($this->form_validation->run() == TRUE) {
-			$data = array(
-				'fname' => $this->input->post('fname'), 
-				'lname' => $this->input->post('lname'),
-				'nic' => $this->input->post('nic'),
-				'telephone' => $this->input->post('telephone'),
-				'email' => $this->input->post('email'),
-				'password' => $this->input->post('password')
-			);
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $telephone = $_POST['telephone'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $repassword = $_POST['repassword'];
 
-			$result = $this->Home_model->register($data);
+            if ($password == $repassword) {
+                $_SESSION['firstname'] = $fname;
+                $_SESSION['lastname'] = $lname;
+                $_SESSION['email'] = $email;
+                $_SESSION['telephone'] = $telephone;
 
-			if ($result == TRUE) {
-				$data['message'] = 'Registered Successfully !';
-				$this->load->view('login',$data);
-			} else {
-				$data['message'] = 'Email already exist !';
-				$this->load->view('signup',$data);
-			}
-			
-		} else {
-			$this->load->view('signup');
-		}
+                $data = array(
+                    'first_name' => $fname,
+                    'last_name' => $lname,
+                    'email' => $email,
+                    'telephone' => $telephone,
+                    'password' => $password,
+                    'status' => 'user'
+                );
+
+                $this->load->model('Home_model');
+                $this->auth_model->register($data);
+                $data['message'] = 'Data Inserted Successfully';
+//Loading View
+                $this->load->view('home');
+
+            } else {
+                $msg = '<font color=red>Password Different.Try Again</font><br />';
+                $data['msg'] = $msg;
+                $this->load->view('signup', $data);
+            }
+
+
+        } else {
+            $msg = '<font color=red>Invalid email and/or name.</font><br />';
+            $data['msg'] = $msg;
+            $this->load->view('signup', $data);
+        }
 		
 	}
 }
