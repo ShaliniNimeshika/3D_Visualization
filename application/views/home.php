@@ -168,8 +168,8 @@
 				<div class="col">
 					<div class="main_slider_content">
 						
-						<h1>Welcome! to have the 3D shopping experience</h1>
-						<div class="red_button shop_now_button"><a href="#">shop now</a></div>
+						<h1>Welcome! To have the 3D shopping experience</h1>
+						<div class="red_button shop_now_button"><a href="#">3D Shop</a></div>
 					</div>
 				</div>
 			</div>
@@ -254,10 +254,10 @@
 								
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
-									
+									<div class="product_price">LKR.1600.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
 						</div>
 
 						<!-- Product 2 -->
@@ -271,10 +271,10 @@
 								<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
-									<div class="product_price">$610.00</div>
+									<div class="product_price">LKR.1600.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
 						</div>
 
 						<!-- Product 3 -->
@@ -287,10 +287,10 @@
 								<div class="favorite"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="single.php"></a></h6>
-									<div class="product_price">$120.00</div>
+									<div class="product_price">LKR.1120.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
 						</div>
 
 						<!-- Product 4 -->
@@ -304,10 +304,10 @@
 								<div class="favorite favorite_left"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
-									<div class="product_price">$410.00</div>
+									<div class="product_price">LKR.1400.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
 						</div>
 
 						<!-- Product 5 -->
@@ -320,10 +320,10 @@
 								<div class="favorite"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
-									<div class="product_price">$120.00</div>
+									<div class="product_price">LKR.1200.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
 						</div>
 
 						<!-- Product 6 -->
@@ -333,14 +333,16 @@
 								<div class="product_image">
 									<img src="<?php echo base_url();?>assests/images/product_6.png" alt="">
 								</div>
-								<div class="favorite favorite_left"></div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<!-- <div class="favorite favorite_left"></div> -->
+								<!-- <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+									
+								</div> -->
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
-									<div class="product_price">$520.00<span>$590.00</span></div>
+									<div class="product_price">LKR.1500.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
 						</div>
 
 						<!-- Product 7 -->
@@ -353,10 +355,10 @@
 								<div class="favorite"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
-									<div class="product_price">$610.00</div>
+									<div class="product_price">LKR.1900.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
 						</div>
 
 						<!-- Product 8 -->
@@ -369,10 +371,10 @@
 								<div class="favorite"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
-									<div class="product_price">$120.00</div>
+									<div class="product_price">LKR.1200.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
 						</div>
 
 						<!-- Product 9 -->
@@ -385,9 +387,10 @@
 								<div class="favorite favorite_left"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
+									<div class="product_price">LKR.1000.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
 						</div>
 
 						<!-- Product 10 -->
@@ -400,10 +403,10 @@
 								<div class="favorite"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
-									<div class="product_price">$180.00</div>
+									<div class="product_price">LKR.1800.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
 						</div>
 					</div>
 				</div>

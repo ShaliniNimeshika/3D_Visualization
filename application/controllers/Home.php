@@ -67,51 +67,79 @@ class Home extends CI_Controller {
 		$this->load->view('week_deal');
 	}
 
+	public function admin(){
+
+        if (($_SESSION['user_logged'])== FALSE ){
+            redirect("Home/load_login");
+        }
+        else{
+            $this->load->view('home');	//need to load admin panel
+        }
+    }
+    public function user(){
+
+        if (($_SESSION['user_logged'])== FALSE ){
+            $this->session->set_flashdata("error","Please loggin first to view this page!!!");
+            redirect("Home/load_login");
+        }
+        else{
+            $this->load->view('home');	//need to load user panel or use profile
+        }
+    }
+
 	//controlling system login
 	public function login_user(){
+		 $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]');
 
-		//validate the user input
-		$this->form_validation->set_rules('username','Username','trim|required|xss_clean');
-		$this->form_validation->set_rules('password','Password','trim|required|min_length[5]|xss_clean');
+        if ($this->form_validation->run() == TRUE) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
 
-		if ($this->form_validation->run() == TRUE) {
-			//get he user input as array elements
-			$data = array('uemail' => $this->input->post('username'),
-						  'password' => $this->input->post('password')
-					);
 
-			$result = $this->Home_model->login($data);
-			if ($result == TRUE) {
-				//get the user email from form and get the result from db through model
-				$user_email = $this->input->post('username');
-				$result = $this->Home_model->search_user($user_email);
-				if ($result != false) {
-					$session_data = array('username' => $result[0]->fname,
-										  'uemail' => $result[0]->email,
-									);
-					// Add user data in session
-					$this->session->set_userdata('logged_in', $session_data);
-					$this->load->view('home'); //add admin pnl
-				}
-			} else {
-				//if there is any error occureed
-				$data = array(
-				'error_message' => 'Invalid Username or Password'
-				);
-				$this->load->view('login', $data);
-			}
-			
+            //check the user from the database
+            $this->db->select('*');
+            $this->db->from('user');
+            $this->db->where(array('email' => $username, 'password' => $password));
 
-		} else {
-			//if the form validation is false
-			if (isset($this->session->userdata['logged_in'])) {
-				//if the userdata got from session load the admin home
-				$this->load->view('home'); // >> setup home -> admin panel home
-			} else {
-				//otherwise redirect to the login page again
-				$this->load->view('login');
-			}
-		}
+            $query = $this->db->get();
+            $user = $query->row();
+            //maintain a session for prticular user
+            $_SESSION['status'] = $user->status;
+
+            if ($user->status == "admin") {
+                //maintain a session to user status already logged in or not
+                $_SESSION['user_logged'] = TRUE;
+                $_SESSION['fname'] = $user->firstname;
+                $_SESSION['lname'] = $user->lastname;
+                $_SESSION['email'] = $user->email;
+
+                //redirect to the profile page
+                redirect("Home/admin", "refresh");
+            } elseif ($user->status == 'user') {
+                //maintain a session to user status already logged in or not
+                $_SESSION['user_logged'] = TRUE;
+                $_SESSION['fname'] = $user->firstname;
+                $_SESSION['lname'] = $user->lastname;
+                $_SESSION['email'] = $user->email;
+
+                //redirect to the profile page
+                redirect("Home/user", "refresh");
+
+            } else {
+                // If user did not validate, then show them login page again
+                $msg = '<font color=red>Please Enter your Username and Password First</font><br />';
+                $data['msg'] = $msg;
+                $this->load->view('login', $data);
+
+            }
+
+        } else {
+            $msg = '<font color=red>Invalid username and/or password.</font><br />';
+            $data['msg'] = $msg;
+            $this->load->view('login', $data);
+        }
+		$this->load->view('login');
 	}
 
 	//logout from the system
