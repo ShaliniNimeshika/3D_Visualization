@@ -73,7 +73,7 @@ class Home extends CI_Controller {
             redirect("Home/load_login");
         }
         else{
-            $this->load->view('home');	//need to load admin panel
+            $this->load->view('admin_panel/ahome');	//need to load admin panel
         }
     }
     public function user(){
@@ -83,7 +83,7 @@ class Home extends CI_Controller {
             redirect("Home/load_login");
         }
         else{
-            $this->load->view('home');	//need to load user panel or use profile
+            $this->load->view('user_panel/uhome');	//need to load user panel or use profile
         }
     }
 
