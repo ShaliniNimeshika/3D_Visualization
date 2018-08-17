@@ -6,7 +6,6 @@ class Home_model extends CI_Model{
 		parent::__construct();
 	}
 	
-
 	public function login($data){
 		$condition = "email =" . "'" . $data['uemail'] . "' AND " . "password =" . "'" . $data=['password'] . "'";
 		$this->db->SELECT('*');
@@ -43,7 +42,8 @@ class Home_model extends CI_Model{
 
 	public function register($data){
 		//adding data into database
-		$this->db->insert('customer', $data);		
+		$this->db->insert('user', $data);	
+			
 	}
 
 }

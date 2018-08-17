@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+
 class Home extends CI_Controller {
 
 	public function __construct() {
@@ -12,7 +14,7 @@ class Home extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('home.php');  //load the home page
+		$this->load->view('home1.php');  //load the home page
 	}
 
 	//load views
@@ -55,6 +57,22 @@ class Home extends CI_Controller {
 		//load ladies collection page
 		$this->load->view('women_collection');
 	}
+
+public function d_load(){
+		
+		//load contact page
+		$this->load->view('Dress');
+	}
+
+// public function dd_load(){
+		
+// 		//load contact page
+// 		$this->load->view('3dWorld');
+// 	}
+
+
+
+	
 	public function load_single(){
 		//loading items as single units
 		$this->load->view('single');
@@ -77,7 +95,7 @@ class Home extends CI_Controller {
     public function user(){
 
         if (($_SESSION['user_logged'])== FALSE ){
-            $this->session->set_flashdata("error","Please loggin first to view this page!!!");
+            $this->session->set_flashdata("error","Please log in first to view this page!!!");
             redirect("Home/load_login");
         }
         else{
@@ -89,6 +107,7 @@ class Home extends CI_Controller {
 	public function login_user(){
 		$this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]');
+
         if ($this->form_validation->run() == TRUE) {
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -117,7 +136,7 @@ class Home extends CI_Controller {
                 $_SESSION['lname'] = $user[0]->last_name;
                 $_SESSION['email'] = $user[0]->email;
                 //redirect to the profile page
-                redirect("Home/user", "refresh");
+                redirect("Home/user", "refresh", $username);
             } else {
                 // If user did not validate, then show them login page again
                 $msg = '<font color=red>Please Enter your Username and Password First</font><br />';
@@ -135,62 +154,71 @@ class Home extends CI_Controller {
 	//logout from the system
 	public function logout(){
 		// Removing session data
-		$session_array = array('username' => '');
+		// $session_array = array('username' => '');
 
-		$this->session->unset_userdata('logged_in', $session_array);
+		// $this->session->unset_userdata('logged_in', $session_array);
 
-		$data['message_display'] = 'Successfully Logout';
+		// $data['message_display'] = 'Successfully Logout';
 
-		$this->load->view('login', $data);
+		// $this->load->view('home1', $data);
+		$this->load->view('home1');
 	}
 
 	//new user registration
 	public function user_registration(){
-		//set validation for user registration
 
+		echo("hello world");
+		//set validation for user registration
 		$this->form_validation->set_rules('fname','fname','trim|required|xss_clean');
 		$this->form_validation->set_rules('lname','lname','trim|required|xss_clean');
-		$this->form_validation->set_rules('nic','nic','trim|required|xss_clean|min_length[10]|max_length[10]');
 		$this->form_validation->set_rules('telephone','telephone','trim|required|xss_clean|min_length[10]');
 		$this->form_validation->set_rules('email','email','trim|required|xss_clean|min_length[100]');
-		$this->form_validation->set_rules('password','password','trim|required|xss_clean|min_length[50]');
+		$this->form_validation->set_rules('password','password','trim|required|xss_clean|min_length[5]');
+		$this->form_validation->set_rules('repassword','repassword','trim|required|xss_clean|min_length[5]');
 
-		if ($this->form_validation->run() == TRUE) {
+
+		if ($this->form_validation->run() == FALSE) {
+
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
-            $telephone = $_POST['telephone'];
+           // $telephone = $_POST['telephone'];
             $email = $_POST['email'];
             $password = $_POST['password'];
             $repassword = $_POST['repassword'];
+            $error = '';
+            if(array_key_exists('telephone', $_POST)){
+                if(!preg_match('/^[0-9]{3}[0-9]{3}[0-9]{4}$/', $_POST['telephone'])){
+                        $error = 'Invalid Number!';
+                        $msg = '<font color=red>Invalid Telephone Number!</font><br />';
+                        $data['msg'] = $msg;
+                        $this->load->view('signup', $data);
+                }else{
+                    if ($password == $repassword) {
+                        $_SESSION['firstname'] = $fname;
+                        $_SESSION['lastname'] = $lname;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['telephone'] = $telephone;
 
-            if ($password == $repassword) {
-                $_SESSION['firstname'] = $fname;
-                $_SESSION['lastname'] = $lname;
-                $_SESSION['email'] = $email;
-                $_SESSION['telephone'] = $telephone;
-
-                $data = array(
-                    'first_name' => $fname,
-                    'last_name' => $lname,
-                    'email' => $email,
-                    'telephone' => $telephone,
-                    'password' => $password,
-                    'status' => 'user'
-                );
-
-                $this->load->model('Home_model');
-                $this->auth_model->register($data);
-                $data['message'] = 'Data Inserted Successfully';
-//Loading View
-                $this->load->view('home');
-
-            } else {
-                $msg = '<font color=red>Password Different.Try Again</font><br />';
-                $data['msg'] = $msg;
-                $this->load->view('signup', $data);
+                        $data = array(
+                            'first_name' => $fname,
+                            'last_name' => $lname,
+                            'email' => $email,
+                            'telephone' => $telephone,
+                            'password' => $password,
+                            'status' => 'user'
+                        );
+                        $this->load->model('Home_model');
+                        $this->Home_model->register($data);
+                        $data['message'] = 'Data Inserted Successfully';
+        //Loading View
+                        $this->load->view('home');
+                    } else {
+                        $msg = '<font color=red>Password Different.Try Again</font><br />';
+                        $data['msg'] = $msg;
+                        $this->load->view('signup', $data);
+                    }
+                }
             }
-
-
         } else {
             $msg = '<font color=red>Invalid email and/or name.</font><br />';
             $data['msg'] = $msg;

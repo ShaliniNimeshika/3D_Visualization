@@ -29,13 +29,13 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="top_nav_left">Welcome to INOACFASHIONLINE 3D Office wear Store</div>
+						<div class="top_nav_left">Welcome to INOAC FASHIONLINE 3D Office wear Store</div>
 					</div>
 					<div class="col-md-6 text-right">
 						<div class="top_nav_right">
 							<ul class="top_nav_menu">
 
-								<!--header part-->
+								<!-- Currency / Language / My Account -->
 
 								<li class="currency">
 									<a href="#">
@@ -64,10 +64,9 @@
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="account_selection">
-
-										<!-- select login or registration-->
-										<li><a href="<?php echo base_url();?>index.php/Home/load_login"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-										<li><a href="<?php echo base_url();?>index.php/Home/load_signup"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+										<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Profile</a></li>
+										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Cart</a></li>
+										<li><a href="<?php echo base_url();?>index.php/Home/logout><i class="fa fa-user-plus" aria-hidden="true"></i>Log Out</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -88,8 +87,6 @@
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-
-								<!-- create navigation bar-->
 								<li><a href="<?php echo base_url();?>index.php">Home</a></li>
 								<li><a href="#">Shop</a></li>
 								<li><a href="<?php echo base_url();?>index.php/Home/load_contact">Contact</a></li>
@@ -173,7 +170,7 @@
 					<div class="main_slider_content">
 						
 						<h1>Welcome! To have the 3D shopping experience</h1>
-						<div class="red_button shop_now_button"><a href="#">3D Shop</a></div>
+						<div class="red_button shop_now_button"><a href="<?php echo base_url();?>3dWorld.html">3D Shop>></a></div>
 					</div>
 				</div>
 			</div>
@@ -195,9 +192,6 @@
 		<div class="container">
 			<div class="row">
 
-				<!-- choose women, men and accessories categories-->
-
-				<!--women catogry-->
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(<?php echo base_url();?>assests/images/banner_1.gif)">
 						<div class="banner_category">
@@ -205,8 +199,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!--accessories category-->
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(<?php echo base_url();?>assests/images/banner_2.jpg)">
 						<div class="banner_category">
@@ -214,8 +206,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!--men category-->
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(<?php echo base_url();?>assests/images/banner_3.gif)">
 						<div class="banner_category">
@@ -227,7 +217,7 @@
 		</div>
 	</div>
 
-	<!-- showing new arrivals of the shop to both registered and non-registered customers. -->
+	<!-- New Arrivals -->
 
 	<div class="new_arrivals">
 		<div class="container">
@@ -344,7 +334,10 @@
 								<div class="product_image">
 									<img src="<?php echo base_url();?>assests/images/product_6.png" alt="">
 								</div>
-
+								<!-- <div class="favorite favorite_left"></div> -->
+								<!-- <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+									
+								</div> -->
 								<div class="product_info">
 									<h6 class="product_name"><a href="<?php echo base_url();?>index.php/Home/load_single"></a></h6>
 									<div class="product_price">LKR.1500.00</div>
@@ -423,7 +416,7 @@
 	</div>
 
 
-	<!-- Showing the special item of the shop which is called 'week deal' -->
+	<!-- Deal of the week -->
 
 <div class="new_arrivals">
 		<div class="container">
@@ -468,8 +461,7 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Dealer and brand names of the items sell in the shop -->
+	<!-- Best Sellers -->
 
 	<div class="best_sellers">
 		<div class="container">

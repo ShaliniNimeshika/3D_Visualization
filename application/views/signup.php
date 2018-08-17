@@ -14,9 +14,7 @@
 
   <body>
     <br>
-    <div class="cta">
-     <!--  &nbsp;&nbsp;&nbsp;<a href="<?php echo base_url();?>index.php"><img src="<?php echo base_url();?>assests/images/home-icon.png" width="60px" height="60px"></a> -->
-    </div>
+    <div class="cta">&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url();?>index.php"><img src="<?php echo base_url();?>assests/images/home-icon.png" width="60px" height="60px"></a></div>
     <div class="pen-title">
       <h1>INOAC | Fashionline</h1><span>Bring the world to the door!</a></span>
     </div>
@@ -28,18 +26,15 @@
       </div>
       <div class="form">
         <h2>Create an account</h2>
-        <form action="<?php echo base_url();?>index.php/Home/user_registration" method="POST" id="regform">
-
+        <form action="">
             <input type="text" name="fname" placeholder="Fisrt Name"/>
             <input type="text" name="lname" placeholder="Last Name"/>
+            <input type="text" name="nic" placeholder="NIC No"/>
             <input type="text" name="telephone" placeholder="Telephone No"/>
             <input type="email" name="email" placeholder="Email"/>
             <input type="text" name="password" placeholder="Password"/>
             <input type="text" name="repassword" maxlength="10" minlength="5" placeholder="Re-enter password"/>
-            
             <button type="submit" value="register">Register</button>
-
-            <div class="cta"><a href="<?php echo base_url();?>index.php">Go to Home</a></div>
             
           </form>
         </div>
