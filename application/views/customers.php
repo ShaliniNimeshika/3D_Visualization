@@ -48,64 +48,15 @@
                 <!-- End Logo -->
                 <div class="navbar-collapse">
                     <!-- toggle and nav items -->
+
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <!-- This is  -->
                         <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
                         <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <!-- Messages -->
-                        <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-th-large"></i></a>
+                        <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                             <div class="dropdown-menu animated zoomIn">
-                                <ul class="mega-dropdown-menu row">
-
-
-                                    <li class="col-lg-3  m-b-30">
-                                        <h4 class="m-b-20">CONTACT US</h4>
-                                        <!-- Contact -->
-                                        <form>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter Name"> </div>
-                                            <div class="form-group">
-                                                <input type="email" class="form-control" placeholder="Enter email"> </div>
-                                            <div class="form-group">
-                                                <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Message"></textarea>
-                                            </div>
-                                            <button type="submit" class="btn btn-info">Submit</button>
-                                        </form>
-                                    </li>
-                                    <li class="col-lg-3 col-xlg-3 m-b-30">
-                                        <h4 class="m-b-20">List style</h4>
-                                        <!-- List style -->
-                                        <ul class="list-style-none">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="col-lg-3 col-xlg-3 m-b-30">
-                                        <h4 class="m-b-20">List style</h4>
-                                        <!-- List style -->
-                                        <ul class="list-style-none">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="col-lg-3 col-xlg-3 m-b-30">
-                                        <h4 class="m-b-20">List style</h4>
-                                        <!-- List style -->
-                                        <ul class="list-style-none">
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> This Is Another Link</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                
                             </div>
                         </li>
                         <!-- End Messages -->
@@ -299,120 +250,46 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Dashboard</h3> </div>
+                    <h3 class="text-primary">Customer Management</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item">Customer Management</li>
+                        <li class="breadcrumb-item active">Search Customer</li>
                     </ol>
                 </div>
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
             <div class="container-fluid">
-                <!-- Start Page Content -->
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-usd f-s-40 color-primary"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2>726383</h2>
-                                    <p class="m-b-0">Total Revenue</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-shopping-cart f-s-40 color-success"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2>3178</h2>
-                                    <p class="m-b-0">Sales</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2>1</h2>
-                                    <p class="m-b-0">Stores</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card p-30">
-                            <div class="media">
-                                <div class="media-left meida media-middle">
-                                    <span><i class="fa fa-user f-s-40 color-danger"></i></span>
-                                </div>
-                                <div class="media-body media-text-right">
-                                    <h2>8</h2>
-                                    <p class="m-b-0">Registered Customers</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="row bg-white m-l-0 m-r-0 box-shadow ">
-
-
                     <!-- column -->
-                    <div class="col-lg-4">
-                        <center>
-                            <div class="card">
-                            <div class="card-title">
-                                <h4>Sales - Statistics </h4>
-                                <br>
-                            </div>
-                            <div class="card-body browser">
-                                <p class="f-w-600">Black - Gent Trouser <span class="pull-right">85%</span></p>
-                                <div class="progress ">
-                                    <div role="progressbar" style="width: 85%; height:8px;" class="progress-bar bg-danger wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
-                                </div>
-
-                                <p class="m-t-30 f-w-600">White - Ladies blouse<span class="pull-right">90%</span></p>
-                                <div class="progress">
-                                    <div role="progressbar" style="width: 90%; height:8px;" class="progress-bar bg-info wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
-                                </div>
-
-                                <p class="m-t-30 f-w-600">Pink - Ladies Frock<span class="pull-right">65%</span></p>
-                                <div class="progress">
-                                    <div role="progressbar" style="width: 65%; height:8px;" class="progress-bar bg-success wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
-                                </div>
-
-                                <p class="m-t-30 f-w-600">Dark blue - Gents Shirt<span class="pull-right">65%</span></p>
-                                <div class="progress">
-                                    <div role="progressbar" style="width: 65%; height:8px;" class="progress-bar bg-warning wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
-                                </div>
-
-                                <p class="m-t-30 f-w-600">Gray - Ladies Skirt<span class="pull-right">65%</span></p>
-                                <div class="progress m-b-30">
-                                    <div role="progressbar" style="width: 65%; height:8px;" class="progress-bar bg-success wow animated progress-animated"> <span class="sr-only">60% Complete</span> </div>
-                                </div>
-                            </div>
+                    <div class="col-lg-2">
+                        <div class="card">
+                            <button onclick="<?php echo base_url();?>index.php/Admin/load_customers">All Customers</button>
                         </div>
-                        </center>
+                    </div>
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <form action="<?php echo base_url();?>index.php/Admin/search_user" method="POST" id="search_word">
+                                  
+                                <input type="text" name="keyword"/>
+                                <button type="submit" value="search">Search</button>
+
+                            </form>
+                        </div>
                     </div>
                     <!-- column -->
                 </div>
+
+
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Recent Orders </h4>
+                                <h4>Registered Customers </h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -439,153 +316,11 @@
                                     </table>
                                 </div>
                             </div>
+                            <!-- <?php if(! is_null($msg)) echo $msg;?> -->
                         </div>
                     </div>
                 </div>
 
-
-                <div class="row">
-					<div class="col-lg-8">
-						<div class="row">
-						<div class="col-lg-6">
-							<div class="card">
-								<div class="card-title">
-									<h4>Message </h4>
-								</div>
-								<div class="recent-comment">
-									<div class="media">
-										<div class="media-left">
-											<a href="#"><img alt="..." src="<?php echo base_url();?>assests/admin_panel/1.jpg" class="media-object"></a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">john doe</h4>
-											<p>Cras sit amet nibh libero, in gravida nulla. </p>
-											<p class="comment-date">October 21, 2018</p>
-										</div>
-									</div>
-									<div class="media">
-										<div class="media-left">
-											<a href="#"><img alt="..." src="<?php echo base_url();?>assests/admin_panel/1.jpg" class="media-object"></a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">john doe</h4>
-											<p>Cras sit amet nibh libero, in gravida nulla. </p>
-											<p class="comment-date">October 21, 2018</p>
-										</div>
-									</div>
-
-									<div class="media">
-										<div class="media-left">
-											<a href="#"><img alt="..." src="<?php echo base_url();?>assests/admin_panel/1.jpg" class="media-object"></a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">john doe</h4>
-											<p>Cras sit amet nibh libero, in gravida nulla. </p>
-											<p class="comment-date">October 21, 2018</p>
-										</div>
-									</div>
-
-									<div class="media no-border">
-										<div class="media-left">
-											<a href="#"><img alt="..." src="<?php echo base_url();?>assests/admin_panel/1.jpg" class="media-object"></a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">Mr. Michael</h4>
-											<p>Cras sit amet nibh libero, in gravida nulla. </p>
-											<div class="comment-date">October 21, 2018</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- /# card -->
-						</div>
-						<!-- /# column -->
-						<div class="col-lg-6">
-							<div class="card">
-								<div class="card-body">
-									<div class="year-calendar">
-                                        <div class="pignose-calendar pignose-calendar-blue pignose-calendar-default">						<div class="pignose-calendar-top">													
-                                                <a href="#" class="pignose-calendar-top-nav pignose-calendar-top-prev"><span class="arrow-left"></span></a>						
-
-                                                <div class="pignose-calendar-top-date">														<span class="pignose-calendar-top-month">August</span>									<span class="pignose-calendar-top-year">2018</span>									</div>													
-
-                                                <a href="#" class="pignose-calendar-top-nav pignose-calendar-top-next"><span class="arrow-right"></span></a>												
-                                            </div>												
-
-                                            <div class="pignose-calendar-header">
-                                                <div class="pignose-calendar-week pignose-calendar-week-sun">SUN</div>
-                                                <div class="pignose-calendar-week pignose-calendar-week-mon">MON</div>
-                                                <div class="pignose-calendar-week pignose-calendar-week-tue">TUE</div>
-                                                <div class="pignose-calendar-week pignose-calendar-week-wed">WED</div>
-                                                <div class="pignose-calendar-week pignose-calendar-week-thu">THU</div>
-                                                <div class="pignose-calendar-week pignose-calendar-week-fri">FRI</div>
-                                                <div class="pignose-calendar-week pignose-calendar-week-sat">SAT</div>
-                                            </div>												
-                                            <div class="pignose-calendar-body"><div class="pignose-calendar-row"><div class="pignose-calendar-unit pignose-calendar-unit-sun"></div><div class="pignose-calendar-unit pignose-calendar-unit-mon"></div><div class="pignose-calendar-unit pignose-calendar-unit-tue"></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed" data-date="2018-08-01"><a href="#">1</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu" data-date="2018-08-02"><a href="#">2</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri" data-date="2018-08-03"><a href="#">3</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat" data-date="2018-08-04"><a href="#">4</a></div></div><div class="pignose-calendar-row"><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun" data-date="2018-08-05"><a href="#">5</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon" data-date="2018-08-06"><a href="#">6</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue" data-date="2018-08-07"><a href="#">7</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed" data-date="2018-08-08"><a href="#">8</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu" data-date="2018-08-09"><a href="#">9</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri" data-date="2018-08-10"><a href="#">10</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat" data-date="2018-08-11"><a href="#">11</a></div></div><div class="pignose-calendar-row"><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun" data-date="2018-08-12"><a href="#">12</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon" data-date="2018-08-13"><a href="#">13</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue" data-date="2018-08-14"><a href="#">14</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed pignose-calendar-unit-active pignose-calendar-unit-first-active" data-date="2018-08-15"><a href="#">15</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu" data-date="2018-08-16"><a href="#">16</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri" data-date="2018-08-17"><a href="#">17</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat" data-date="2018-08-18"><a href="#">18</a></div></div><div class="pignose-calendar-row"><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun" data-date="2018-08-19"><a href="#">19</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon" data-date="2018-08-20"><a href="#">20</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue" data-date="2018-08-21"><a href="#">21</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed" data-date="2018-08-22"><a href="#">22</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu" data-date="2018-08-23"><a href="#">23</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri" data-date="2018-08-24"><a href="#">24</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat" data-date="2018-08-25"><a href="#">25</a></div></div><div class="pignose-calendar-row"><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun" data-date="2018-08-26"><a href="#">26</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon" data-date="2018-08-27"><a href="#">27</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue" data-date="2018-08-28"><a href="#">28</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed" data-date="2018-08-29"><a href="#">29</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu" data-date="2018-08-30"><a href="#">30</a></div><div class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri" data-date="2018-08-31"><a href="#">31</a></div><div class="pignose-calendar-unit pignose-calendar-unit-sat"></div></div></div>											</div></div>
-								</div>
-							</div>
-						</div>
-
-
-						</div>
-					</div>
-
-				    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Todo</h4>
-                                <div class="card-content">
-                                    <div class="todo-list">
-                                        <div class="tdl-holder">
-                                            <div class="tdl-content">
-                                                <ul>
-                                                    <li>
-                                                        <label>
-															<input type="checkbox"><i class="bg-primary"></i><span>Build an angular app</span>
-															<a href="#" class="ti-close"></a>
-														</label>
-                                                    </li>
-                                                    <li>
-                                                        <label>
-															<input type="checkbox" checked=""><i class="bg-success"></i><span>Creating component page</span>
-															<a href="#" class="ti-close"></a>
-														</label>
-                                                    </li>
-                                                    <li>
-                                                        <label>
-															<input type="checkbox" checked=""><i class="bg-warning"></i><span>Follow back those who follow you</span>
-															<a href="#" class="ti-close"></a>
-														</label>
-                                                    </li>
-                                                    <li>
-                                                        <label>
-															<input type="checkbox" checked=""><i class="bg-danger"></i><span>Design One page theme</span>
-															<a href="#" class="ti-close"></a>
-														</label>
-                                                    </li>
-
-                                                    <li>
-                                                        <label>
-															<input type="checkbox" checked=""><i class="bg-success"></i><span>Creating component page</span>
-															<a href="#" class="ti-close"></a>
-														</label>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <input type="text" class="tdl-new form-control" placeholder="Type here">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <!-- End PAge Content -->
-            </div>
-            <!-- End Container fluid  -->
             <!-- footer -->
             <footer class="footer"> 
                 ©2018 All Rights Reserverd by <a href="#">INOAC Fashionline</a>

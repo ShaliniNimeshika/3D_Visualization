@@ -139,8 +139,21 @@ public function d_load(){
 			            redirect("Home/load_login");
 			        }
 			        else{
-			        	$data['username'] = $_SESSION['fname'];
-			            $this->load->view('admin_panel', $data);	//need to load admin panel
+			        	//load the database  
+				        $this->load->database();  
+				        //load the model  
+				        $this->load->model('Admin_model');  
+				        //load the method of model  
+				        $query =$this->Admin_model->users_detail();  
+
+				        $data['users'] = null;
+						if($query){
+							$data['users'] =  $query;
+						}
+				         //return the data in view  
+				        $this->load->view('admin_panel', $data);
+			        	// $data['username'] = $_SESSION['fname'];
+			         //    $this->load->view('admin_panel', $data);	//need to load admin panel
 			        }
 
 	            } elseif ($_SESSION['status'] == 'user') {
@@ -208,11 +221,15 @@ public function d_load(){
         $this->email->subject('Reset Password');
         $this->email->message("No need to worry, you can reset your password by clicking the link below: \n",$link,"\nIf you didn't request a password reset, feel free to delete this email! \nAll the best, \nThe Spotify Team");
         //Send mail
-        if($this->email->send())
-            $this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
-        else
-            $this->session->set_flashdata("email_sent","You have encountered an error");
-        $this->load->view('contact_email_form');
+        if($this->email->send()){
+            check_mail();      
+        }
+        else{
+            $msg = '<font color=red>You have encountered with an error!</font><br />';
+	        $data['msg'] = $msg;
+	        $this->load->view('login', $data);
+        }
+        
 	}
 
 	//after entering reset password email, the successful msg is shown here
