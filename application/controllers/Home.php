@@ -120,29 +120,54 @@ public function d_load(){
 
             //session_start();
             //maintain a session for prticular user
-            $_SESSION['status'] = $user[0]->status;
-            if ($user[0]->status == "admin") {
-                //maintain a session to user status already logged in or not
-                $_SESSION['user_logged'] = TRUE;
-                $_SESSION['fname'] = $user[0]->first_name;
-                $_SESSION['lname'] = $user[0]->last_name;
-                $_SESSION['email'] = $user[0]->email;
-                //redirect to the profile page
-                redirect("Home/admin", "refresh");
-            } elseif ($user[0]->status == 'user') {
-                //maintain a session to user status already logged in or not
-                $_SESSION['user_logged'] = TRUE;
-                $_SESSION['fname'] = $user[0]->first_name;
-                $_SESSION['lname'] = $user[0]->last_name;
-                $_SESSION['email'] = $user[0]->email;
-                //redirect to the profile page
-                redirect("Home/user", "refresh", $username);
+            if (count($user) <= 0) {
+	            $msg = '<font color=red>Invalid username and/or password.</font><br />';
+	            $data['msg'] = $msg;
+	            $this->load->view('login', $data);
             } else {
-                // If user did not validate, then show them login page again
-                $msg = '<font color=red>Please Enter your Username and Password First</font><br />';
-                $data['msg'] = $msg;
-                $this->load->view('login', $data);
+            	$_SESSION['status'] = $user[0]->status;
+	            if ($_SESSION['status'] == 'admin') {
+	                //maintain a session to user status already logged in or not
+	                $_SESSION['user_logged'] = TRUE;
+	                $_SESSION['fname'] = $user[0]->first_name;
+	                $_SESSION['lname'] = $user[0]->last_name;
+	                $_SESSION['email'] = $user[0]->email;
+	                //redirect to the profile page
+	                //redirect("Home/admin", "refresh");
+
+	                if (($_SESSION['user_logged'])== FALSE ){
+			            redirect("Home/load_login");
+			        }
+			        else{
+			        	$data['username'] = $_SESSION['fname'];
+			            $this->load->view('home', $data);	//need to load admin panel
+			        }
+
+	            } elseif ($_SESSION['status'] == 'user') {
+	                //maintain a session to user status already logged in or not
+	                $_SESSION['user_logged'] = TRUE;
+	                $_SESSION['fname'] = $user[0]->first_name;
+	                $_SESSION['lname'] = $user[0]->last_name;
+	                $_SESSION['email'] = $user[0]->email;
+	                //redirect to the profile page
+	                //redirect("Home/user", "refresh", $username);
+
+	                if (($_SESSION['user_logged'])== FALSE ){
+			            $this->session->set_flashdata("error","Please log in first to view this page!!!");
+			            redirect("Home/load_login");
+			        }
+			        else{
+			        	$data['username'] = $_SESSION['fname'];
+			            $this->load->view('home',$data);	//need to load user panel or use profile
+			        }
+	            } else {
+	                // If user did not validate, then show them login page again
+	                $msg = '<font color=red>Invalid username and/or password.</font><br />';
+	                $data['msg'] = $msg;
+	                $this->load->view('login', $data);
+	            }
             }
+            
         } else {
             $msg = '<font color=red>Invalid username and/or password.</font><br />';
             $data['msg'] = $msg;
@@ -164,10 +189,39 @@ public function d_load(){
 		$this->load->view('home1');
 	}
 
+	public function reset_pwd(){
+		$this->load->view('resetpwd');
+	}
+
+	public function reset_add(){
+		$this->load->view('reset_add');
+	}
+
+	public function send_email(){
+		$from_email = "email@example.com";
+        $to_email = $this->input->post('email');
+        //Load email library
+        $this->load->library('email');
+        $this->email->from($from_email, 'Identification');
+        $this->email->to($to_email);
+        $this->email->subject('Send Email Codeigniter');
+        $this->email->message('The email send using codeigniter library');
+        //Send mail
+        if($this->email->send())
+            $this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
+        else
+            $this->session->set_flashdata("email_sent","You have encountered an error");
+        $this->load->view('contact_email_form');
+	}
+
+	public function check_mail(){
+		$this->load->view('checkmail');
+	}
+
 	//new user registration
 	public function user_registration(){
 
-		echo("hello world");
+		//echo("hello world");
 		//set validation for user registration
 		$this->form_validation->set_rules('fname','fname','trim|required|xss_clean');
 		$this->form_validation->set_rules('lname','lname','trim|required|xss_clean');

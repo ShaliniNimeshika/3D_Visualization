@@ -60,13 +60,13 @@
 								</li>
 								<li class="account">
 									<a href="#">
-										My Account
+										<?php if(! is_null($username)) echo $username;?>
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="account_selection">
-										<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Profile</a></li>
-										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Cart</a></li>
-										<li><a href="<?php echo base_url();?>index.php/Home/logout><i class="fa fa-user-plus" aria-hidden="true"></i>Log Out</a></li>
+										<li><a href="#">Profile</a></li>
+										<li><a href="#">Cart</a></li>
+										<li><a href="<?php echo base_url();?>index.php/Home/logout">Log Out</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -145,7 +145,7 @@
 						<li><a href="#">FAQ</a></li>
 					</ul>
 				</li>
-				<li class="menu_item has-children">
+				<!-- <li class="menu_item has-children">
 					<a href="#">
 						My Account
 						<i class="fa fa-angle-down"></i>
@@ -154,7 +154,7 @@
 						<li><a href="<?php echo base_url();?>index.php/Home/load_login"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
 						<li><a href="<?php echo base_url();?>index.php/Home/load_signup"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
 					</ul>
-				</li>
+				</li> -->
 				<li class="menu_item"><a href="<?php echo base_url();?>index.php">home</a></li>
 				<li class="menu_item"><a href="#">shop</a></li>
 				<li class="menu_item"><a href="<?php echo base_url();?>index.php/Home/load_contact">contact</a></li>		

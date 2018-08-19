@@ -19,26 +19,13 @@
 
 <!-- Form Module-->
 <div class="module form-module">
-  <div class="toggle"><a href="<?php echo base_url();?>index.php/Home/load_signup"><i class="fa fa-times fa-pencil"></i></a>
-    <div class="tooltip">NEW USER ?</div>
+  <div class="toggle">
   </div>
 
   <div class="form">
-    <h2>Sign in to your account</h2>
-    
-    <form action="<?php echo base_url();?>index.php/Home/login_user" method="post" id="loginform">
-      <?php if(! is_null($msg)) echo $msg;?>
-      <br>
-
-        <input type="email" name="username" placeholder="Email"/>
-        <input type="password" name="password" placeholder="Password" minlength="5"/>
-        <button type="submit" value="sign in">Login</button>
-        <div class="cta"><a href="<?php echo base_url();?>index.php">Go to Home</a></div>
-    </form>
+    <h2>Please Check Your Inbox</h2>
   
   </div>
-  
-  <div class="cta"><a href="<?php echo base_url();?>index.php/Home/reset_add">Forgot your password?</a></div>
 </div>
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

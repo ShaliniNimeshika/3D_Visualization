@@ -16,12 +16,12 @@
     <br>
     <div class="cta">&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url();?>index.php"><img src="<?php echo base_url();?>assests/images/home-icon.png" width="60px" height="60px"></a></div>
     <div class="pen-title">
-      <h1>INOAC | Fashionline</h1><span>Bring the world to the door!</a></span>
+      <h1><font color="RED">INOAC</font><font color="BLACK">  | Fashionline</font></h1><span>Bring the world to the door!</a></span>
     </div>
     <!-- Form Module-->
     <div class="module form-module">
       
-      <div class="toggle"><a href="login.php"><i class="fa fa-times fa-pencil"></i></a>
+      <div class="toggle"><a href="<?php echo base_url();?>index.php/Home/load_login"><i class="fa fa-times fa-pencil"></i></a>
         <div class="tooltip">MEMBER ?</div>
       </div>
       <div class="form">
@@ -33,7 +33,7 @@
             <input type="text" name="telephone" placeholder="Telephone No"/>
             <input type="email" name="email" placeholder="Email"/>
             <input type="text" name="password" placeholder="Password"/>
-            <input type="text" name="repassword" maxlength="10" minlength="5" placeholder="Re-enter password"/>
+            <input type="text" name="repassword" minlength="5" placeholder="Re-enter password"/>
             <button type="submit" value="register">Register</button>
             
           </form>
