@@ -25,16 +25,13 @@ class Home_model extends CI_Model{
 
 	public function search_user($user_email){
 
-		$condition = "email =" . "'" . $user_email . "'";
 		$this->db->SELECT('*');
 		$this->db->FROM('user');
-		$this->db->WHERE($condition);
-		$this->db->limit(1);
-
+		$this->db->WHERE('email',$user_email);
 		$query = $this->db->get();
 
 		if ($query->num_rows() == 1) {
-			return $query->result();
+			return true;
 		} else {
 			return false;
 		}		

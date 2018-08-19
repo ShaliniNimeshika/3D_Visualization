@@ -140,7 +140,7 @@ public function d_load(){
 			        }
 			        else{
 			        	$data['username'] = $_SESSION['fname'];
-			            $this->load->view('home', $data);	//need to load admin panel
+			            $this->load->view('admin_panel', $data);	//need to load admin panel
 			        }
 
 	            } elseif ($_SESSION['status'] == 'user') {
@@ -178,34 +178,35 @@ public function d_load(){
 
 	//logout from the system
 	public function logout(){
-		// Removing session data
-		// $session_array = array('username' => '');
-
-		// $this->session->unset_userdata('logged_in', $session_array);
-
-		// $data['message_display'] = 'Successfully Logout';
-
-		// $this->load->view('home1', $data);
 		$this->load->view('home1');
 	}
 
+
+	/*
+		Controller functions for reset password
+	*/
+
+	//reset password form with password and re-password
 	public function reset_pwd(){
 		$this->load->view('resetpwd');
 	}
 
+	//load view for enter mail address to send reset password link
 	public function reset_add(){
 		$this->load->view('reset_add');
 	}
 
+	//sending email to the user mail to reset password and through this function send link to resetpwd.php view
 	public function send_email(){
-		$from_email = "email@example.com";
+		$from_email = "no-reply@inoac.com";
         $to_email = $this->input->post('email');
+        $data['link'] = base_url().'Home/reset_pwd';
         //Load email library
         $this->load->library('email');
         $this->email->from($from_email, 'Identification');
         $this->email->to($to_email);
-        $this->email->subject('Send Email Codeigniter');
-        $this->email->message('The email send using codeigniter library');
+        $this->email->subject('Reset Password');
+        $this->email->message("No need to worry, you can reset your password by clicking the link below: \n",$link,"\nIf you didn't request a password reset, feel free to delete this email! \nAll the best, \nThe Spotify Team");
         //Send mail
         if($this->email->send())
             $this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
@@ -214,6 +215,7 @@ public function d_load(){
         $this->load->view('contact_email_form');
 	}
 
+	//after entering reset password email, the successful msg is shown here
 	public function check_mail(){
 		$this->load->view('checkmail');
 	}
@@ -235,44 +237,54 @@ public function d_load(){
 
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
-           // $telephone = $_POST['telephone'];
+            $telephone = $_POST['telephone'];
             $email = $_POST['email'];
             $password = $_POST['password'];
             $repassword = $_POST['repassword'];
             $error = '';
-            if(array_key_exists('telephone', $_POST)){
-                if(!preg_match('/^[0-9]{3}[0-9]{3}[0-9]{4}$/', $_POST['telephone'])){
-                        $error = 'Invalid Number!';
-                        $msg = '<font color=red>Invalid Telephone Number!</font><br />';
-                        $data['msg'] = $msg;
-                        $this->load->view('signup', $data);
-                }else{
-                    if ($password == $repassword) {
-                        $_SESSION['firstname'] = $fname;
-                        $_SESSION['lastname'] = $lname;
-                        $_SESSION['email'] = $email;
-                        $_SESSION['telephone'] = $telephone;
+            
+            //check whether user is registered or not
+            $this->db->SELECT('*');
+			$this->db->FROM('user');
+			$this->db->WHERE('email','$email');
+			$query = $this->db->get();
+			$value = $query->num_rows();
 
-                        $data = array(
-                            'first_name' => $fname,
-                            'last_name' => $lname,
-                            'email' => $email,
-                            'telephone' => $telephone,
-                            'password' => $password,
-                            'status' => 'user'
-                        );
-                        $this->load->model('Home_model');
-                        $this->Home_model->register($data);
-                        $data['message'] = 'Data Inserted Successfully';
-        //Loading View
-                        $this->load->view('home');
-                    } else {
-                        $msg = '<font color=red>Password Different.Try Again</font><br />';
-                        $data['msg'] = $msg;
-                        $this->load->view('signup', $data);
-                    }
-                }
+			if ($value > 0) {
+				$msg = '<font color=green>Already Registered. Please sign in using email address and password.</font><br />';
+	            $data['msg'] = $msg;
+	            $this->load->view('login', $data);
+            	
+            } else {
+            	if ($password == $repassword) {
+	                $_SESSION['firstname'] = $fname;
+	                $_SESSION['lastname'] = $lname;
+	                $_SESSION['email'] = $email;
+	                $_SESSION['telephone'] = $telephone;
+
+	                $data = array(
+	                    'first_name' => $fname,
+	                    'last_name' => $lname,
+	                    'email' => $email,
+	                    'telephone' => $telephone,
+	                    'password' => $password,
+	                    'status' => 'user'
+	                );
+
+	                $this->load->model('Home_model');
+	                $this->Home_model->register($data);
+	                $data['username'] = $_SESSION['firstname'];
+	//Loading View
+	                $this->load->view('home',$data);
+	            } else {
+	                $msg = '<font color=red>Password Different.Try Again</font><br />';
+	                $data['msg'] = $msg;
+	                $this->load->view('signup', $data);
+	            }
             }
+            
+                
+            
         } else {
             $msg = '<font color=red>Invalid email and/or name.</font><br />';
             $data['msg'] = $msg;
