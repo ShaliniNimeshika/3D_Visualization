@@ -54,7 +54,7 @@ class Admin extends CI_Controller {
         //load the model  
         $this->load->model('Admin_model');  
         //load the method of model  
-        $query =$this->Admin_model->search($keyword);  
+        $query =$this->Admin_model->search_user($keyword);  
 
         $data['users'] = null;
 		if($query){
@@ -76,6 +76,8 @@ class Admin extends CI_Controller {
 	public function load_updateuser(){
 		$msg = '<font color=black>Update user details by Admin.</font><br />';
 	    $data['msg'] = $msg;
+	    $data['users'] = null;
+	    $data['user'] = null;
 		$this->load->view('update_user',$data);
 	}
 
@@ -158,20 +160,35 @@ class Admin extends CI_Controller {
         //load the model  
         $this->load->model('Admin_model');  
         //load the method of model  
-        $query =$this->Admin_model->search_user($keyword);  
+        $query =$this->Admin_model->search($keyword); 
+
+        $data['users'] = null; 
 
 		if($query){
 			$data['users'] =  $query;
-			$this->load->view("update_user",$data);
+			
 		}else{
 			$msg = '<font color=green>No Result Found!</font><br />';
 	        $data['msg'] = $msg;
-	        $this->load->view("update_user",$data);
+	        $data['users'] =  null;
+	       
 		}
+
+		$this->load->view("update_user",$data);
 	}
 
 	public function set_update(){
+		$email = $_POST['email'];
+		$this->load->model('Admin_model');
+		$query = $this->Admin_model->set_textfield($email);
 
+		$data['user'] = null;
+
+		if ($query) {
+			$data['user'] = $query;
+		}
+
+		$this->load->view('update_user',$data);
 	}
 
 	// update user details

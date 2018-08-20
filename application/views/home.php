@@ -61,11 +61,12 @@
 								<li class="account">
 									<a href="#">
 										<?php if(! is_null($username)) echo $username;?>
+
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="account_selection">
 										<li><a href="#">Profile</a></li>
-										<li><a href="#">Cart</a></li>
+										<li><a href="<?php echo base_url();?>index.php/Home/load_cartview">Cart</a></li>
 										<li><a href="<?php echo base_url();?>index.php/Home/logout">Log Out</a></li>
 									</ul>
 								</li>
@@ -258,7 +259,7 @@
 									<div class="product_price">LKR.1600.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">Add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="<?php echo base_url();?>index.php/Cart/add_to_cart">Add to cart</a></div>
 						</div>
 
 						<!-- Product 2 -->

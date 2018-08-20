@@ -148,7 +148,8 @@ public function d_load(){
 
 				        $data['users'] = null;
 						if($query){
-							$data['users'] =  $query;
+							//$data['users'] =  $query;
+							$data = array('users' => $query, 'email' => $_SESSION['email'] );
 						}
 				         //return the data in view  
 				        $this->load->view('admin_panel', $data);
@@ -170,7 +171,7 @@ public function d_load(){
 			            redirect("Home/load_login");
 			        }
 			        else{
-			        	$data['username'] = $_SESSION['fname'];
+			        	$data['username'] = $_SESSION['email'];
 			            $this->load->view('home',$data);	//need to load user panel or use profile
 			        }
 	            } else {
@@ -290,7 +291,7 @@ public function d_load(){
 
 	                $this->load->model('Home_model');
 	                $this->Home_model->register($data);
-	                $data['username'] = $_SESSION['firstname'];
+	                $data['username'] = $_SESSION['email'];
 	//Loading View
 	                $this->load->view('home',$data);
 	            } else {
@@ -309,4 +310,12 @@ public function d_load(){
         }
 		
 	}
+
+	/*
+		CART
+	*/
+		public function load_cartview(){
+			$data['email'] = $_SESSION['email'];
+			$this->load->view('cart',$data);
+		}
 }

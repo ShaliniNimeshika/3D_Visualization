@@ -27,10 +27,15 @@ class Admin_model extends CI_Model{
     }
 
     public function search_user($keyword){
-    	$this->db->SELECT('*');
-		$this->db->FROM('user');
-		$this->db->WHERE('first_name',$keyword OR 'last_name',$keyword OR 'email',$keyword);
-		$query = $this->db->get();
+
+
+    	$query = $this->db->query("select * from user where first_name ='$keyword' OR last_name = '$keyword' OR email = '$keyword'");
+
+  //   	$where = "first_name=$keyword";
+  //   	$this->db->SELECT('*');
+		// $this->db->FROM('user');
+		// $this->db->WHERE($where);
+		// $query = $this->db->get();
 		
 		return $query->result();
     }
@@ -85,6 +90,16 @@ class Admin_model extends CI_Model{
 		$condition = "catid =" . "'" . $catid . "' AND " . "itemname =" . "'" . $itemname . "'";
 		$this->db->SELECT('*');
 		$this->db->FROM('item');
+		$this->db->WHERE($condition);
+		$query = $this->db->get();
+
+		return $query->result();
+	}
+
+	public function set_textfield($email){
+		$condition = "email =" . "'" . $email ."'";
+		$this->db->SELECT('*');
+		$this->db->FROM('user');
 		$this->db->WHERE($condition);
 		$query = $this->db->get();
 

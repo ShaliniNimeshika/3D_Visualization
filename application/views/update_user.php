@@ -171,7 +171,7 @@
                         <!-- End Messages -->
                         <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url();?>assests/admin_panel/5.jpg" alt="user" class="profile-pic"></a>
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['email']?></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
                                     <li><a href="#"><i class="ti-user"></i> Profile</a></li>
@@ -269,7 +269,7 @@
                     <!-- column -->
                     <div class="col-lg-12">
                         <div class="card">
-                            <?php if(! is_null($msg)) echo $msg;?>
+                           <!--  <?php if(! is_null($msg)) echo $msg;?> -->
                         </div>
                     </div>
                 </div>
@@ -291,12 +291,38 @@
 
                                     </form>
 
-                                        <label>First Name : </label><?php echo $users[0]->first_name;?><br>
-                                        <label>Last Name : </label><?php echo $users[0]->last_name;?><br> 
-                                        <label>Email : </label><?php echo $users[0]->email;?><br> 
-                                        <label>Telephone : </label><?php echo $users[0]->telephone;?>   
+                                    <?php  
+                                            if($users == null){
+
+                                        ?>
+                                        <label>First Name : </label><br>
+                                        <label>Last Name : </label><br> 
+                                        <label>Email : </label><br> 
+                                        <label>Telephone : </label>
+
+                                           <?php }else{
+
+
+                                                foreach ($users as $row){ ?>
+                                            
+                                            
+
+                                        <label>First Name : </label><?php echo $row->first_name;?><br>
+                                        <label>Last Name : </label><?php echo $row->last_name;?><br> 
+                                        <input name="uemail" type="hidden" value="<?php echo $row->email;?>">
+                                        <label>Email : </label><?php echo $row->email;?><br> 
+                                        <label>Telephone : </label><?php echo $row->telephone;?>  
                                     
-                                        <button onclick="<?php echo base_url();?>index.php/Admin/set_update">Set to Text >></button>
+                                        
+
+                                        <?php }
+
+                                    }
+
+                                         ?>
+
+
+                                        <button ><a href="<?php echo base_url();?>index.php/Admin/set_update">Set to Text </a></button>
                                 </div>
                             </center>
                             <!-- <?php if(! is_null($msg)) echo $msg;?> -->
@@ -313,11 +339,20 @@
                                 <div class="card-body">
                                     <form action="<?php echo base_url();?>index.php/Admin/user_update" method="POST" id="regform">
 
-                                        <input type="text" name="fname" placeholder="Fisrt Name"/><br><br>
-                                        <input type="text" name="lname" placeholder="Last Name"/><br><br>
-                                        <input type="text" name="telephone" placeholder="Telephone No"/><br><br>
-                                        <input type="email" name="email" placeholder="Email"/><br><br><br>
-                                        <button type="submit" value="new_register">Update</button>
+                                        <?php if($user==null) {?>
+                                            <input type="text" name="fname"/><br><br>
+                                            <input type="text" name="lname"/><br><br>
+                                            <input type="text" name="telephone"/><br><br>
+                                            <input type="email" name="email"/><br><br><br>
+                                        <?php }  else { 
+                                            foreach ($user as $rows){ ?>
+                                                <input type="text" name="fname" value="<?php echo $rows->first_name;?>" /><br><br>
+                                                <input type="text" name="lname" value="<?php echo $rows->last_name;?>" /><br><br>
+                                                <input type="text" name="telephone" value="<?php echo $rows->telephone;?>" /><br><br>
+                                                <input type="email" name="email" value="<?php echo $rows->email;?>" /><br><br><br>
+                                            <?php } ?>
+                                        <?php } ?>
+                                        <button type="submit" value="update">Update</button>
                                                                            
                                       </form>
                                 </div>
