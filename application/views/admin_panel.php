@@ -221,11 +221,7 @@
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url();?>assests/admin_panel/5.jpg" alt="user" class="profile-pic"></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="#"><i class="ti-user"></i> Profile</a></li>
-                                    <li><a href="#"><i class="ti-wallet"></i> Balance</a></li>
-                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/Home/logout"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -280,9 +276,9 @@
                         <li class="nav-label">Stores</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Stock Management</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Search Stock</a></li>
-                                <li><a href="#">Add New Item</a></li>
-                                <li><a href="#">Update Details</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/Admin/load_searchstock">Search Stock</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/Admin/load_additem">Add New Item</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/Admin/load_updateitem">Update Details</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -358,7 +354,9 @@
                                     <span><i class="fa fa-user f-s-40 color-danger"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2>8</h2>
+                                    <h2>
+                                        <?php if(! is_null($users)) echo count($users);?>
+                                    </h2>
                                     <p class="m-b-0">Registered Customers</p>
                                 </div>
                             </div>

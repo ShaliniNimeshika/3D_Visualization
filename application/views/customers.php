@@ -231,9 +231,9 @@
                         <li class="nav-label">Stores</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Stock Management</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Search Stock</a></li>
-                                <li><a href="#">Add New Item</a></li>
-                                <li><a href="#">Update Details</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/Admin/load_searchstock">Search Stock</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/Admin/load_additem">Add New Item</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/Admin/load_updateitem">Update Details</a></li>
                             </ul>
                         </li>
                     </ul>

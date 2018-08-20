@@ -46,6 +46,7 @@ class Admin extends CI_Controller {
 		$this->load->view("admin_panel",$data);
 	}
 
+	//search user by given keyword
 	public function search_user(){
 		$keyword = $_POST['keyword'];
 		//load the database  
@@ -78,6 +79,7 @@ class Admin extends CI_Controller {
 		$this->load->view('update_user',$data);
 	}
 
+	//new user registration by admin
 	public function user_registration(){
 
 		//echo("hello world");
@@ -148,6 +150,7 @@ class Admin extends CI_Controller {
 		
 	}
 
+	//search user by email
 	public function user_search(){
 		$keyword = $_POST['keyword'];
 		//load the database  
@@ -171,6 +174,7 @@ class Admin extends CI_Controller {
 
 	}
 
+	// update user details
 	public function user_update(){
 		$this->form_validation->set_rules('fname','fname','trim|required|xss_clean');
 		$this->form_validation->set_rules('lname','lname','trim|required|xss_clean');
@@ -204,15 +208,115 @@ class Admin extends CI_Controller {
 		STOCK MANAGEMENT
 	*/
 
+	//load search_stock.php
 	public function load_searchstock(){
 		$this->load->view('search_stock');
 	}
 
+	//load add_item.php
 	public function load_additem(){
-		$this->load->view('add_item');
+		$msg = '<font color=black>Add new categories and items by Admin.</font><br />';
+		$data['msg'] = $msg;
+
+		$this->load->database();
+		$this->load->model('Admin_model');
+		$load_category['category'] = $this->Admin_model->load_category();
+
+		$this->load->view('add_item',$data,$load_category);
 	}
 
+	//load update_item.php
 	public function load_updateitem(){
-		$this->load->view('update_item');
+		$msg = '<font color=black>This fields for updating item details</font><br />';
+		$data['msg'] = $msg;
+		$this->load->view('update_item',$data);
+	}
+
+	// Add Category
+	public function add_category(){
+		
+		$catname = $_POST['catname'];
+
+		if (! is_null($catname)) {
+			$this->load->database();  
+	        //load the model  
+	        $this->load->model('Admin_model');  
+	        //load the method of model  
+	        $query =$this->Admin_model->search_category($catname);  
+
+	        $data['msg'] = null;
+			if($query){
+				$data['msg'] =  $query;
+			}
+
+			if (count($query) > 0) {
+				$msg = '<font color=red>Category already registered!</font><br />';
+				$data['msg'] = $msg;
+				$this->load->view('add_item', $data);
+			} else {
+				$detail = array(
+                    'catname' => $catname,
+                    'status' => 'active'
+                );  
+		        $this->load->model('Admin_model');   
+		        $query =$this->Admin_model->add_category($detail); 
+				$msg = '<font color=green>Category registered Successfully!</font><br />';
+				$data['msg'] = $msg;
+				$this->load->view('add_item', $data);
+			}		
+	         //return the data in view  
+	        
+		} else {
+			$msg = '<font color=red>Something went wrong!</font><br />';
+			$data['msg'] = $msg;
+			$this->load->view('add_item', $data);
+		} 
+	}
+
+	//add new item
+	public function new_item(){
+
+		$this->form_validation->set_rules('catname', 'catname', 'required');
+        $this->form_validation->set_rules('itemname', 'itemname', 'trim|required|xss_clean|min_length[4]');
+        $this->form_validation->set_rules('avbqty', 'avbqty', 'trim|required|xss_clean|min_length[4]');
+        $this->form_validation->set_rules('itemprice', 'itemprice', 'trim|required|xss_clean|min_length[4]');
+        $this->form_validation->set_rules('color', 'color', 'trim|required|xss_clean|min_length[2]');
+
+        if ($this->form_validation->run() == TRUE) {
+        	$catname = $_POST['catname'];
+			$itemname = $_POST['itemname'];
+			$avbqty = $_POST['avbqty'];
+			$itemprice = $_POST['itemprice'];
+			$color = $_POST['color'];
+
+			$this->load->model('Admin_model');
+			$catid = $this->Admin_model->get_catid($catname);
+
+			$item_found = $this->Admin_model->find_item($catid,$itemname);
+
+			if ($item_found > 0) {
+				$msg = '<font color=red>Item is already inserted!</font><br />';
+				$data['msg'] = $msg;
+				$this->load->view('add_item', $data);
+			} else {
+				$data = array('catid' => $catid,
+					'itemname' => $itemname,
+					'avbqty' => $avbqty,
+					'itemprice' => $itemprice,
+					'color' => $color );
+
+				$this->load->model('Admin_model');
+				$this->Admin_model->insert_item($data);
+
+				$msg = '<font color=green>Insert New Item Successfully!</font><br />';
+				$message['msg'] = $msg;
+				$this->load->view('add_item', $message);
+			}
+			
+        }else{
+        	$msg = '<font color=red>Something went wrong!</font><br />';
+			$data['msg'] = $msg;
+			$this->load->view('add_item', $data);
+        }
 	}
 }
