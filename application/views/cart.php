@@ -72,9 +72,9 @@
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['email']?></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="#"> Profile</a></li>
-                                    <li><a href="#"> Cart</a></li>
-                                    <li><a href="#"> Logout</a></li>
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/Home/load_cartview">Cart</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/Home/logout">Log Out</a></li>
                                 </ul>
                             </div>
                         </li>

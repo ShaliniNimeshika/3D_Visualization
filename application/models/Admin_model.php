@@ -26,23 +26,27 @@ class Admin_model extends CI_Model{
 		return $query->result();
     }
 
+    public function deleteCustomer($email){
+    	return $this->db->delete('user',['email'=>$email]);
+    }
+
     public function search_user($keyword){
 
-
-    	$query = $this->db->query("select * from user where first_name ='$keyword' OR last_name = '$keyword' OR email = '$keyword'");
-
-  //   	$where = "first_name=$keyword";
-  //   	$this->db->SELECT('*');
-		// $this->db->FROM('user');
-		// $this->db->WHERE($where);
-		// $query = $this->db->get();
-		
+    	$query = $this->db->query("select * from user where first_name ='$keyword' OR last_name = '$keyword' OR email = '$keyword'");	
 		return $query->result();
     }
 
-    public function update_db($email,$data){
-    	$sql = "UPDATE user SET first_name=".$firstname." last_name=".$lastname." telephone=".$telephone." WHERE email=".$email;
-
+    public function update_db($data){
+    	$email = $data['email'];
+    	
+    	$update_data = array(
+    						'first_name' => $data['first_name'],
+					    	'last_name' => $data['last_name'],
+					    	'email' => $data['email'],
+					    	'telephone' => $data['telephone']
+    	);
+    	
+    	return $this->db->where('email',$email)->update('user',$update_data);
     }
 
     /*
@@ -63,11 +67,20 @@ class Admin_model extends CI_Model{
 	}
 
 	public function load_category(){
-		$this->db->SELECT('*');
-		$this->db->FROM('category');
-		$query = $this->db->get();
+		// $this->db->SELECT('*');
+		// $this->db->FROM('category');
+		// $query = $this->db->get();
 		
-		return $query->result();
+		// return $query->result();
+
+		$result = $this->db->select('catid, catname')->get('category')->result_array(); 
+ 
+        $category = array(); 
+        foreach($result as $r) { 
+            $category[$r['catid']] = $r['catname']; 
+        } 
+        $category[''] = 'Select Category...'; 
+        return $category; 
 	}
 
 	//get category id
@@ -86,17 +99,23 @@ class Admin_model extends CI_Model{
 	}
 
 	//find the availability of an item
-	public function find_item($catid,$itemname){
-		$condition = "catid =" . "'" . $catid . "' AND " . "itemname =" . "'" . $itemname . "'";
-		$this->db->SELECT('*');
-		$this->db->FROM('item');
-		$this->db->WHERE($condition);
-		$query = $this->db->get();
+	public function find_item($data){
+		$catid = $data['catid'];
+        $itemname = $data['itemname'];
+
+        $query = $this->db->query("select * from item where catid = '$catid' and itemname = '$itemname'");	
+		// return $query->result();
+		// $condition = "catid =" . "'" . $data->catid . "' AND " . "itemname =" . "'" . $data->itemname . "'";
+		// $this->db->SELECT('*');
+		// $this->db->FROM('item');
+		// $this->db->WHERE($condition);
+		// $query = $this->db->get();
+
 
 		return $query->result();
 	}
 
-	public function set_textfield($email){
+	public function load_update($email){
 		$condition = "email =" . "'" . $email ."'";
 		$this->db->SELECT('*');
 		$this->db->FROM('user');
@@ -105,4 +124,13 @@ class Admin_model extends CI_Model{
 
 		return $query->result();
 	}
+
+	public function load_stock(){
+		$this->db->select('*');
+        $this->db->from('item');
+        $query = $this->db->get(); 
+
+        return $query->result();
+	}
+
 }

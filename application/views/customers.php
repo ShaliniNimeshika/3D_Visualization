@@ -65,106 +65,16 @@
                     <ul class="navbar-nav my-lg-0">
 
                         <!-- Search -->
-                        <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search here"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                        <li class="nav-item hidden-sm-down search-box">
                         </li>
                         <!-- Comment -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-bell"></i>
-								<div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-							</a>
-                            <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn">
-                                <ul>
-                                    <li>
-                                        <div class="drop-title">Notifications</div>
-                                    </li>
-                                    <li>
-                                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;"><div class="message-center" style="overflow: hidden; width: auto; height: 250px;">
-                                            <!-- Message -->
-                                            <a href="#">
-                                                <div class="btn btn-danger btn-circle m-r-10"><i class="fa fa-link"></i></div>
-                                                <div class="mail-contnet">
-                                                    <h5>This is title</h5> <span class="mail-desc">Just see the my new admin!</span> <span class="time">9:30 AM</span>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="#">
-                                                <div class="btn btn-success btn-circle m-r-10"><i class="ti-calendar"></i></div>
-                                                <div class="mail-contnet">
-                                                    <h5>This is another title</h5> <span class="mail-desc">Just a reminder that you have event</span> <span class="time">9:10 AM</span>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="#">
-                                                <div class="btn btn-info btn-circle m-r-10"><i class="ti-settings"></i></div>
-                                                <div class="mail-contnet">
-                                                    <h5>This is title</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="#">
-                                                <div class="btn btn-primary btn-circle m-r-10"><i class="ti-user"></i></div>
-                                                <div class="mail-contnet">
-                                                    <h5>This is another title</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
-                                                </div>
-                                            </a>
-                                        </div><div class="slimScrollBar" style="background: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            
                         </li>
                         <!-- End Comment -->
                         <!-- Messages -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-envelope"></i>
-								<div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-							</a>
-                            <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
-                                <ul>
-                                    <li>
-                                        <div class="drop-title">You have 4 new messages</div>
-                                    </li>
-                                    <li>
-                                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;"><div class="message-center" style="overflow: hidden; width: auto; height: 250px;">
-                                            <!-- Message -->
-                                            <a href="#">
-                                                <div class="user-img"> <img src="<?php echo base_url();?>assests/admin_panel/5.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
-                                                <div class="mail-contnet">
-                                                    <h5>Michael Qin</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="#">
-                                                <div class="user-img"> <img src="<?php echo base_url();?>assests/admin_panel/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
-                                                <div class="mail-contnet">
-                                                    <h5>John Doe</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="#">
-                                                <div class="user-img"> <img src="<?php echo base_url();?>assests/admin_panel/3.jpg" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
-                                                <div class="mail-contnet">
-                                                    <h5>Mr. John</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="#">
-                                                <div class="user-img"> <img src="<?php echo base_url();?>assests/admin_panel/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
-                                                <div class="mail-contnet">
-                                                    <h5>Michael Qin</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
-                                                </div>
-                                            </a>
-                                        </div><div class="slimScrollBar" style="background: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>See all e-Mails</strong> <i class="fa fa-angle-right"></i> </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            
                         </li>
                         <!-- End Messages -->
                         <!-- Profile -->
@@ -172,11 +82,7 @@
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['email']?></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="#"><i class="ti-user"></i> Profile</a></li>
-                                    <li><a href="#"><i class="ti-wallet"></i> Balance</a></li>
-                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/Home/logout"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -203,27 +109,19 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="#">Search Order</a></li>
                                 <li><a href="#">View Customers</a></li>
-                                <li><a href="#">Placed Orders</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-label">Discussion Forum</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Discussions</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Compose</a></li>
-                                <li><a href="#">Sent</a></li>
-                                <li><a href="#">Inbox</a></li>
-                            </ul>
                         </li>
                         
                         <li class="nav-label">Users</li>
                         
-						<li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Customer Management</span></a>
+						<li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">User Management</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="<?php echo base_url();?>index.php/Admin/load_newreg">New Registration</a></li>
-                                <li><a href="<?php echo base_url();?>index.php/Admin/load_updateuser">Update Customer Details</a></li>
                                 <li><a href="<?php echo base_url();?>index.php/Admin/load_customers">Search Customer</a></li>
-                                <li><a href="#">Orders</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/Admin/load_newreg">User Settings</a></li>
                             </ul>
                         </li>
                         
@@ -250,11 +148,11 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Customer Management</h3> </div>
+                    <h3 class="text-primary">User Management</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Customer Management</li>
+                        <li class="breadcrumb-item">User Management</li>
                         <li class="breadcrumb-item active">Search Customer</li>
                     </ol>
                 </div>
@@ -300,16 +198,20 @@
                                                 <th>Last Name</th>
                                                 <th>Email</th>
                                                 <th>Telephone</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php  
                                                 foreach ($users as $row){ ?>
-                                                <tr>  
+                                                <tr data-url="<?php echo base_url();?>index.php/Admin/load_updateuser">  
                                                     <td><?php echo $row->first_name;?></td>  
                                                     <td><?php echo $row->last_name;?></td> 
                                                     <td><?php echo $row->email;?></td> 
-                                                    <td><?php echo $row->telephone;?></td>  
+                                                    <td><?php echo $row->telephone;?></td>
+                                                    <input name="uemail" type="hidden" value="<?php echo $row->email;?>"> 
+                                                    <td><span class="badge badge-info"><a href="#"><font color="black">View Cart</font></a></span>
+                                                        <span class="badge badge-success"><a href="<?php echo base_url();?>index.php/Admin/load_updateuser"><font color="black">Update Info</font></a></span></td> 
                                                 </tr>  
                                             <?php } ?>
                                         </tbody>
@@ -375,6 +277,13 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('table.table tr').click(function () {
+            window.location.href = $(this).data('url');
+        });
+    })
 </script>
 
 

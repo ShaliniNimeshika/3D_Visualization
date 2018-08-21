@@ -68,18 +68,27 @@ class Admin extends CI_Controller {
 	}
 
 	public function load_newreg(){
-		$msg = '<font color=black>Register new users by Admin.</font><br />';
+		$msg = '<font color=black></font><br />';
 	    $data['msg'] = $msg;
+	    $data['users'] = null;
 		$this->load->view('newreg',$data);
 	}
 
-	public function load_updateuser(){
-		$msg = '<font color=black>Update user details by Admin.</font><br />';
-	    $data['msg'] = $msg;
-	    $data['users'] = null;
-	    $data['user'] = null;
-		$this->load->view('update_user',$data);
-	}
+	// public function load_updateuser($user){
+	// 	$msg = '<font color=black>Update user details by Admin.</font><br />';
+	// 	$email = $user->email;
+
+	// 	$this->load->database();
+	// 	$this->load->model("Admin_model");
+	// 	$query = $this->Admin_model->load_update($email);
+
+	//     $data['users'] = null;
+	//     if ($query) {
+	//     	$data['users'] = $query;
+	//     }
+	    
+	// 	$this->load->view('update_user',$data);
+	// }
 
 	//new user registration by admin
 	public function user_registration(){
@@ -166,6 +175,7 @@ class Admin extends CI_Controller {
 
 		if($query){
 			$data['users'] =  $query;
+			$data['msg'] = '<font color=red>Danger! Once you click Delete you cannot undo the activity! </font><br />';
 			
 		}else{
 			$msg = '<font color=green>No Result Found!</font><br />';
@@ -174,32 +184,49 @@ class Admin extends CI_Controller {
 	       
 		}
 
-		$this->load->view("update_user",$data);
+		$this->load->view("newreg",$data);
 	}
 
-	public function set_update(){
+	//delete user
+	public function delete_user(){
 		$email = $_POST['email'];
 		$this->load->model('Admin_model');
-		$query = $this->Admin_model->set_textfield($email);
-
-		$data['user'] = null;
-
-		if ($query) {
-			$data['user'] = $query;
+		if($this->Admin_model->deleteCustomer($email)){
+			$data['msg'] = 'Customer Delete Successfully...'; 
+			$data['users'] = null;
 		}
-
-		$this->load->view('update_user',$data);
+		else{
+			$data['msg'] = 'Failed to Delete Customer...';
+			$data['users'] = null;
+		}
+		$this->load->view("newreg",$data);
 	}
+
+	// public function set_update(){
+	// 	$email = $_POST['email'];
+	// 	$this->load->model('Admin_model');
+	// 	$query = $this->Admin_model->set_textfield($email);
+
+	// 	$data['user'] = null;
+
+	// 	if ($query) {
+	// 		$data['user'] = $query;
+	// 	}
+
+	// 	$this->load->view('update_user',$data);
+	// }
 
 	// update user details
 	public function user_update(){
 		$this->form_validation->set_rules('fname','fname','trim|required|xss_clean');
 		$this->form_validation->set_rules('lname','lname','trim|required|xss_clean');
+		$this->form_validation->set_rules('email','email','trim|required|xss_clean');
 		$this->form_validation->set_rules('telephone','telephone','trim|required|xss_clean|min_length[10]');
 
-		if ($this->form_validation->run()==TRUE) {
+		if ($this->form_validation->run()==FALSE) {
 			$fname = $_POST['fname'];
             $lname = $_POST['lname'];
+            $email = $_POST['email'];
             $telephone = $_POST['telephone'];
 
             $data = array(
@@ -210,12 +237,14 @@ class Admin extends CI_Controller {
 	                );
 
             $this->load->model('Admin_model');
-            $this->Admin_model->update_db($email,$data);
+            $this->Admin_model->update_db($data);
             $data['msg'] = '<font color=green>Update Successfully!</font><br />';
-//Loading View
-            $this->load->view('update_user',$data);
+            $data['users'] = null;
+            $this->load->view('newreg',$data);
 		} else {
-			# code...
+			$data['msg'] = '<font color=green>Failed to update user!</font><br />';
+            $data['users'] = null;
+            $this->load->view('newreg',$data);
 		}
 		
 	}
@@ -227,19 +256,28 @@ class Admin extends CI_Controller {
 
 	//load search_stock.php
 	public function load_searchstock(){
-		$this->load->view('search_stock');
+		$this->load->database();
+		$this->load->model('Admin_model');
+		$query = $this->Admin_model->load_stock();
+
+		$data['product'] = null;
+		if ($query) {
+			$data['product'] = $query;
+		}
+		$this->load->view('search_stock',$data);
 	}
 
 	//load add_item.php
 	public function load_additem(){
 		$msg = '<font color=black>Add new categories and items by Admin.</font><br />';
-		$data['msg'] = $msg;
+		// $data['msg'] = $msg;
 
 		$this->load->database();
 		$this->load->model('Admin_model');
-		$load_category['category'] = $this->Admin_model->load_category();
+		$load_cat = $this->Admin_model->load_category();
+		$data = array('msg' => $msg, 'category' => $load_cat);
 
-		$this->load->view('add_item',$data,$load_category);
+		$this->load->view('add_item',$data);
 	}
 
 	//load update_item.php
@@ -293,14 +331,14 @@ class Admin extends CI_Controller {
 	//add new item
 	public function new_item(){
 
-		$this->form_validation->set_rules('catname', 'catname', 'required');
+		$this->form_validation->set_rules('category', 'category', 'required');
         $this->form_validation->set_rules('itemname', 'itemname', 'trim|required|xss_clean|min_length[4]');
         $this->form_validation->set_rules('avbqty', 'avbqty', 'trim|required|xss_clean|min_length[4]');
         $this->form_validation->set_rules('itemprice', 'itemprice', 'trim|required|xss_clean|min_length[4]');
         $this->form_validation->set_rules('color', 'color', 'trim|required|xss_clean|min_length[2]');
 
-        if ($this->form_validation->run() == TRUE) {
-        	$catname = $_POST['catname'];
+        if ($this->form_validation->run() == FALSE) {
+        	$catname = $_POST['category'];
 			$itemname = $_POST['itemname'];
 			$avbqty = $_POST['avbqty'];
 			$itemprice = $_POST['itemprice'];
@@ -309,12 +347,18 @@ class Admin extends CI_Controller {
 			$this->load->model('Admin_model');
 			$catid = $this->Admin_model->get_catid($catname);
 
-			$item_found = $this->Admin_model->find_item($catid,$itemname);
+			$find = array('catid' => $catid, 'itemname' => $itemname );
 
-			if ($item_found > 0) {
+			$item_found = $this->Admin_model->find_item($find);
+
+			if (count($item_found) > 0) {
 				$msg = '<font color=red>Item is already inserted!</font><br />';
-				$data['msg'] = $msg;
-				$this->load->view('add_item', $data);
+				$this->load->database();
+				$this->load->model('Admin_model');
+				$load_cat = $this->Admin_model->load_category();
+				$data = array('msg' => $msg, 'category' => $load_cat);
+
+				$this->load->view('add_item',$data);
 			} else {
 				$data = array('catid' => $catid,
 					'itemname' => $itemname,
@@ -326,14 +370,22 @@ class Admin extends CI_Controller {
 				$this->Admin_model->insert_item($data);
 
 				$msg = '<font color=green>Insert New Item Successfully!</font><br />';
-				$message['msg'] = $msg;
-				$this->load->view('add_item', $message);
+				$this->load->database();
+				$this->load->model('Admin_model');
+				$load_cat = $this->Admin_model->load_category();
+				$data = array('msg' => $msg, 'category' => $load_cat);
+
+				$this->load->view('add_item',$data);
 			}
 			
         }else{
         	$msg = '<font color=red>Something went wrong!</font><br />';
-			$data['msg'] = $msg;
-			$this->load->view('add_item', $data);
+			$this->load->database();
+			$this->load->model('Admin_model');
+			$load_cat = $this->Admin_model->load_category();
+			$data = array('msg' => $msg, 'category' => $load_cat);
+
+			$this->load->view('add_item',$data);
         }
 	}
 }
